@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --bg-primary: #F5F7FA;
+  --surface-card: #FFFFFF;
+  --sidebar-bg: #111827;
+  --brand-primary: #3157A4;
+  --brand-accent: #5278B8;
+  --text-primary: #172033;
+  --text-secondary: #667085;
+  --text-muted: #98A2B3;
+  --border-subtle: #E5E9F0;
+  --status-success: #16865D;
+  --status-warning: #D99A32;
+  --status-error: #D94F54;
+  --status-info: #3977B8;
+}
+
+html.dark {
+  color-scheme: dark;
+  --bg-primary: #0D1320;
+  --surface-card: #172235;
+  --sidebar-bg: #111A2B;
+  --brand-primary: #7899D4;
+  --brand-accent: #5278B8;
+  --text-primary: #F1F5F9;
+  --text-secondary: #A0AEC0;
+  --text-muted: #64748B;
+  --border-subtle: #2B3A50;
+  --status-success: #22C55E;
+  --status-warning: #F59E0B;
+  --status-error: #EF4444;
+  --status-info: #38BDF8;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   Universal Form Controls & Dropdown Fixes:
+   Fixes the issue where browser renders native select popups as pure white
+   boxes with unreadable white/low-contrast text on Windows Chromium/WebKit.
+   ========================================================================== */
+
+select {
+  background-color: #FFFFFF !important;
+  color: #172033 !important;
+  border-color: #E5E9F0;
+  color-scheme: light;
+}
+
+select option {
+  background-color: #FFFFFF !important;
+  color: #172033 !important;
+  padding: 8px 12px;
+}
+
+select optgroup {
+  background-color: #F5F7FA !important;
+  color: #667085 !important;
+  font-weight: 600;
+}
+
+html.dark select {
+  background-color: #172235 !important;
+  color: #F1F5F9 !important;
+  border-color: #2B3A50;
+  color-scheme: dark;
+}
+
+html.dark select option {
+  background-color: #172235 !important;
+  color: #F1F5F9 !important;
+}
+
+html.dark select optgroup {
+  background-color: #111A2B !important;
+  color: #A0AEC0 !important;
+}
+
+/* Inputs & Textareas Dark/Light Contrast Safety */
+input, textarea {
+  color-scheme: light;
+}
+
+html.dark input, html.dark textarea {
+  color-scheme: dark;
+}
+
+/* Tabular Numerals for Analytics Metrics */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom Scrollbar for professional data tables */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
