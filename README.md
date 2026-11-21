@@ -103,24 +103,50 @@ AutoDataScience is an enterprise-grade, modular, interactive, and extensible **A
 
 ## 🛠️ Technology Stack
 
-- **Backend**: Python 3.13, Django 6.1, Django REST Framework, Scikit-learn, XGBoost, LightGBM, CatBoost, Optuna, SHAP, Imbalanced-learn, Polars, DuckDB, Pandas, NumPy, ReportLab, OpenPyXL.
-- **Database**: Default SQLite (`db.sqlite3`) for seamless zero-setup execution.
-- **Frontend**: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Lucide Icons, React Plotly.js, Zustand, TanStack Query.
+- **Languages**: Python 3.13, TypeScript, JavaScript, CSS, and SQL.
+- **Backend**: Django 6.1, Django REST Framework, django-cors-headers, and Celery.
+- **Data and machine learning**: NumPy, Pandas, Polars, DuckDB, SciPy, scikit-learn, XGBoost, LightGBM, CatBoost, Optuna, SHAP, imbalanced-learn, and joblib.
+- **Reports and integrations**: Requests, OpenPyXL, and ReportLab.
+- **Database**: SQLite (`db.sqlite3`), included with Python.
+- **Frontend**: Node.js 24, npm 11, Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS, Lucide React, Plotly.js, TanStack Query, Zustand, GSAP, Framer Motion, Lenis, canvas-confetti, and clsx.
+- **Development tools**: Git, pip, npm, TypeScript, and ESLint.
 
 ---
 
 ## 🚀 Getting Started
 
+### Prerequisites
+
+- Python 3.13
+- Node.js 24 and npm 11
+- Git (to clone the repository)
+
+### Install dependencies
+
+From the project root:
+
+```powershell
+python -m venv backend\.venv
+backend\.venv\Scripts\python.exe -m pip install --upgrade pip
+backend\.venv\Scripts\python.exe -m pip install -r requirements.txt
+cd frontend
+npm ci
+```
+
 ### 1. Start the Django Backend
+
+In a new terminal, from the project root:
 
 ```powershell
 cd backend
-python manage.py migrate
-python manage.py runserver 8000
+.\.venv\Scripts\python.exe manage.py migrate
+.\.venv\Scripts\python.exe manage.py runserver 8000
 ```
 Backend API will be live at `http://localhost:8000/api/`.
 
 ### 2. Start the Next.js Frontend
+
+In another terminal:
 
 ```powershell
 cd frontend

@@ -1,0 +1,35 @@
+# Languages/tools: Python 3.13, JavaScript, TypeScript, CSS, SQL, Git, pip, npm
+# Backend: Django, Django REST Framework, django-cors-headers, Celery, SQLite
+# Data/ML: NumPy, Pandas, Polars, DuckDB, SciPy, scikit-learn, XGBoost,
+# LightGBM, CatBoost, Optuna, SHAP, imbalanced-learn, joblib
+# I/O and reports: Requests, OpenPyXL, ReportLab
+# Frontend (Node.js 24/npm 11; install from frontend with npm ci):
+# next, react, react-dom, tailwindcss, @tailwindcss/turbopack,
+# @tanstack/react-query, lucide-react, plotly.js-dist-min, react-plotly.js,
+# zustand, gsap, framer-motion, lenis, canvas-confetti, clsx, tailwind-merge,
+# typescript, eslint, eslint-config-next, @types/canvas-confetti, @types/node,
+# @types/react, and @types/react-dom.
+# Frontend dependencies are declared in frontend/package.json and installed with npm.
+
+Django==6.1.1
+djangorestframework==3.18.3
+django-cors-headers==4.9.0
+celery>=5.4,<6
+
+numpy==2.5.1
+pandas==3.0.5
+polars==2.1.0
+duckdb==2.0.0
+scipy==1.18.0
+scikit-learn==1.6.1
+xgboost==3.4.1
+lightgbm==4.7.0
+catboost==1.2.10
+optuna==5.1.0
+shap==0.54.1
+imbalanced-learn==0.14.2
+joblib==1.5.3
+
+requests==2.34.2
+openpyxl==3.1.5
+reportlab==5.1.0
