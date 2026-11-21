@@ -130,3 +130,49 @@ Open `http://localhost:3000` in your browser.
 
 - **Landing Page**: `http://localhost:3000`
 - **Application Workspace**: `http://localhost:3000/dashboard`
+
+## Deploy to Render (manual Web Services)
+
+The backend and frontend use different runtimes, so create **two Web Services** manually in the Render Dashboard. No Blueprint is required.
+
+### 1. Deploy the backend
+
+In Render, choose **New + → Web Service**, connect this GitHub repository, and configure:
+
+- **Root Directory**: `backend`
+- **Runtime**: Python
+- **Build Command**: `pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate`
+- **Start Command**: `gunicorn config.wsgi:application --bind 0.0.0.0:$PORT`
+
+Add these environment variables in the backend service's **Environment** tab:
+
+| Key | Value |
+| --- | --- |
+| `PYTHON_VERSION` | `3.13.13` |
+| `DEBUG` | `False` |
+| `DJANGO_SECRET_KEY` | Generate a secret in Render |
+| `ALLOWED_HOSTS` | `.onrender.com` |
+| `CELERY_TASK_ALWAYS_EAGER` | `True` |
+
+Deploy the service and copy its public URL, for example `https://datascience-backend.onrender.com`.
+
+### 2. Deploy the frontend
+
+Create another **Web Service** using the same repository and configure:
+
+- **Root Directory**: `frontend`
+- **Runtime**: Node
+- **Build Command**: `npm install && npm run build`
+- **Start Command**: `npm start`
+
+Add this environment variable to the frontend service, replacing the example with your backend URL:
+
+| Key | Value |
+| --- | --- |
+| `NEXT_PUBLIC_API_URL` | `https://datascience-backend.onrender.com/api` |
+
+Deploy the frontend. If you add or change this variable later, redeploy the frontend because Next.js uses it during the build.
+
+### Storage note
+
+The default SQLite database and uploaded files are stored on the service filesystem, which may be cleared when a Render service restarts or redeploys. Use persistent storage for data you need to keep.
